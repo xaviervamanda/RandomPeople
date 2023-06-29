@@ -1,4 +1,5 @@
 import express from "express";
+import "express-async-errors";
 import dotenv from "dotenv";
 import personsRouter from "./routers/people.routes";
 
@@ -9,7 +10,8 @@ dotenv.config();
 
 app.get('/health', (_req, res) => res.send('OK!'))
 
-const port = process.env.PORT || 5000;
+// esse + é como se estivesse usando o parseInt()
+const port = +process.env.PORT || 5000;
 app.listen(port, () => {
 	console.log(`Servidor rodando na porta ${port}`)
 });
